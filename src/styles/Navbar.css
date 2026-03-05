@@ -1,0 +1,55 @@
+/* NAVBAR CONTAINER */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(15, 18, 32, 0.85);
+  backdrop-filter: blur(10px);
+
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* LINKS CONTAINER */
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+/* LINKS */
+.nav-links a {
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #a1a1aa;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+/* HOVER */
+.nav-links a:hover {
+  color: #8b5cf6;
+}
+
+/* UNDERLINE ANIMADO */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #8b5cf6;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}

@@ -1,0 +1,73 @@
+.experiencia {
+  padding: 120px 8%;
+  background: var(--bg-primary);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: var(--accent);
+  text-align: center;
+}
+
+.exp-block {
+  margin-bottom: 80px;
+}
+
+.exp-block h2 {
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  color: var(--text-primary);
+}
+
+.exp-card {
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+}
+
+.exp-card:hover {
+  border: 1px solid var(--accent);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+}
+
+.exp-card h3 {
+  margin-bottom: 10px;
+}
+
+.exp-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* GRID DE MINI CARDS */
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.mini-card {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  transition: 0.3s ease;
+}
+
+.mini-card:hover {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
