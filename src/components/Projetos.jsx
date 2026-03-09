@@ -20,8 +20,8 @@ const projects = [
   {
     name: "Portfólio",
     desc: "Aplicação web desenvolvida em React para apresentação profissional de projetos, habilidades e contatos. Atualmente um dos unicos projetos com deploy, hospedado no Vercel.",
-    github: "NULL",
-    deploy: "NULL",
+    github: "https://github.com/JoaoFontanella/Portfolio",
+    deploy: "https://fontanella-portfolio.vercel.app",
     team: false,
   }
 ];
