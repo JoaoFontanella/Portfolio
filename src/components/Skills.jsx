@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Skills.css";
+import AnimatedText from "./AnimatedText";
 
 const skills = [
   {
@@ -43,6 +44,10 @@ const skills = [
     icon: "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Git.svg",
   },
   {
+    name: "Github",
+    icon: "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Github-Dark.svg",
+  },
+  {
     name: "Figma",
     icon: "https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Figma-Dark.svg",
   },
@@ -51,7 +56,9 @@ const skills = [
 export default function Skills() {
   return (
     <section id="skills">
-      <h2>Tecnologias</h2>
+      <h2>
+        <AnimatedText text="Tecnologias" />
+      </h2>
       <div className="skills-grid">
         {skills.map((skill, index) => (
           <div key={index} className="skill-card">

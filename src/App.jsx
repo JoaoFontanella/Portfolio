@@ -11,7 +11,7 @@ function App() {
       <Scroll/>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/experiencia" element={<Experiencia />} /> */}
+        <Route path="/experiencia" element={<Experiencia />} />
       </Routes>
     </>
   );

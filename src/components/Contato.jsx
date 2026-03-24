@@ -1,11 +1,14 @@
 import React from "react";
 import "../styles/Contato.css";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import AnimatedText from "./AnimatedText";
 
 export default function Contato() {
   return (
     <section id="contact">
-      <h2>Entre em contato</h2>
+      <h2>
+        <AnimatedText text="Entre em contato" />
+      </h2>
 
       <div className="email">
         <FaEnvelope />

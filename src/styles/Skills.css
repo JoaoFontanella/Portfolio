@@ -33,7 +33,7 @@
 .skill-card:hover {
   transform: translateY(-8px);
   border: 1px solid var(--accent);
-  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 10px 30px var(--accent-soft);
 }
 
 .skill-card img {

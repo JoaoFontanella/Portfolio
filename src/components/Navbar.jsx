@@ -17,6 +17,7 @@ export default function Navbar() {
         <Link to="/#skills" onClick={() => setMenuOpen(false)}>Skills</Link>
         <Link to="/#projects" onClick={() => setMenuOpen(false)}>Projetos</Link>
         <Link to="/#contact" onClick={() => setMenuOpen(false)}>Contato</Link>
+        <Link to="/experiencia" onClick={() => setMenuOpen(false)}>Experiência</Link>
       </div>
     </nav>
   );
