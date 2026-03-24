@@ -76,7 +76,7 @@ nav {
     top: 70px;
     left: -500%;
 
-    width: 80%;
+    width: 30%;
     height: calc(100vh - 70px);
     padding-left: 20px;
 
@@ -96,6 +96,7 @@ nav {
 
   .nav-links.active {
     left: 0;
+    width: 50%;
   }
 }
 
