@@ -21,7 +21,7 @@ export default function Hero() {
             <a href="#projects">
               <button className="btn-primary">Ver Projetos</button>
             </a>
-            <a href="experiencia">
+            <a href="/experiencia">
               <button className="btn-secondary">Experiência</button>
             </a>
           </div>
