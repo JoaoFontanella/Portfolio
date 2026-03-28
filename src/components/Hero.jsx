@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Hero.css";
 import AnimatedText from "./AnimatedText";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -18,12 +19,12 @@ export default function Hero() {
             Tenho experiência acadêmica criando sistemas com integração de APIs e bancos de dados relacionais como PostgreSQL e MySQL." />
           </p>
           <div className="hero-buttons">
-            <a href="#projects">
+            <Link to="/#projects">
               <button className="btn-primary">Ver Projetos</button>
-            </a>
-            <a href="/experiencia">
+            </Link>
+            <Link to="/experiencia">
               <button className="btn-secondary">Experiência</button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
