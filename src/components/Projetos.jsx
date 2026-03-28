@@ -11,7 +11,16 @@ const projects = [
     github: "#projects",
     deploy: null,
     team: true,
-    repo_priv: true, 
+    repo_priv: true,
+  },
+  {
+    name: "Plataforma de Assinaturas",
+    desc: "Aplicação web com sistema de assinaturas mensal e anual para liberação de conteúdo exclusivo. Desenvolvido com integração de API do Mercado Pago para processamento de pagamentos",
+    tech: ["React", "Node.js", "PostgreSQL"],
+    github: null,
+    deploy: null,
+    team: false,
+    repo_priv: true,
   },
   {
     name: "Projeto Banco de Dados II",
@@ -20,7 +29,7 @@ const projects = [
     github: "https://github.com/JoaoFontanella/ABP_Banco_de_dados_II",
     deploy: null,
     team: false,
-    repo_priv: false, 
+    repo_priv: false,
   },
   {
     name: "Portfólio",
@@ -29,7 +38,16 @@ const projects = [
     github: "https://github.com/JoaoFontanella/Portfolio",
     deploy: "https://fontanella-portfolio.vercel.app",
     team: false,
-    repo_priv: false, 
+    repo_priv: false,
+  },
+  {
+    name: "ContaComigo",
+    desc: "Aplicação mobile desenvolvida em equipe com foco em organização financeira pessoal, permitindo o controle de contas, despesas e gestão de informações do usuário de forma prática e intuitiva.",
+    tech: ["React", "Git"],
+    github: "https://github.com/weslainesantana/ContaComigo",
+    deploy: null,
+    team: true,
+    repo_priv: false,
   }
 ];
 
@@ -81,22 +99,26 @@ export default function Projetos() {
               {p.tech && p.tech.map((t) => renderTechIcon(t))}
             </div>
 
-            <div className="project-buttons">
-              <a href={p.github} target="_blank" rel="noopener noreferrer">
-                <button className="btn-code">
-                  <GitHubIcon />
-                  Código
-                </button>
-              </a>
-              {p.deploy && (
-                <a href={p.deploy} target="_blank" rel="noopener noreferrer">
+            {(!p.repo_priv || p.deploy) && (
+              <div className="project-buttons">
+                {!p.repo_priv && (
+                  <a href={p.github} target="_blank" rel="noopener noreferrer">
+                    <button className="btn-code">
+                      <GitHubIcon />
+                      Código
+                    </button>
+                  </a>
+                )}
+                {p.deploy && (
+                  <a href={p.deploy} target="_blank" rel="noopener noreferrer">
                     <button className="btn-deploy">
                       <VercelIcon />
                       Deploy
                     </button>
-                </a>
-              )}
-            </div>
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         ))}
       </div>
