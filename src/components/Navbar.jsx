@@ -1,23 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname, location.hash]);
 
   return (
-    <nav>
-      <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-        ☰
-      </div>
+    <nav className={`site-nav ${menuOpen ? "site-nav--open" : ""}`}>
+      <div className="site-nav__inner">
+        <button
+          type="button"
+          className="menu-toggle"
+          onClick={() => setMenuOpen((value) => !value)}
+          aria-expanded={menuOpen}
+          aria-label="Abrir menu de navegação"
+        >
+          {menuOpen ? <FiX /> : <FiMenu />}
+        </button>
 
-      <div className={`nav-links ${menuOpen ? "active" : ""}`}>
-        <Link to="/#hero" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link to="/#about" onClick={() => setMenuOpen(false)}>Sobre</Link>
-        <Link to="/#skills" onClick={() => setMenuOpen(false)}>Skills</Link>
-        <Link to="/#projects" onClick={() => setMenuOpen(false)}>Projetos</Link>
-        <Link to="/#contact" onClick={() => setMenuOpen(false)}>Contato</Link>
-        <Link to="/experiencia" onClick={() => setMenuOpen(false)}>Experiência</Link>
+        <div className={`nav-links ${menuOpen ? "active" : ""}`}>
+          <Link to="/#hero">Início</Link>
+          <Link to="/#about">Sobre</Link>
+          <Link to="/#skills">Skills</Link>
+          <Link to="/#projects">Projetos</Link>
+          <Link to="/#contact">Contato</Link>
+          <Link to="/experiencia">Experiência</Link>
+        </div>
       </div>
     </nav>
   );

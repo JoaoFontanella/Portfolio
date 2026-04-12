@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "../styles/Experiencia.css";
 import AnimatedText from "../components/AnimatedText";
+import SectionHeader from "../components/SectionHeader";
+import Reveal from "../components/Reveal";
 
 export default function Experiencia() {
   useEffect(() => {
@@ -27,28 +29,34 @@ export default function Experiencia() {
   return (
     <section className="experiencia">
       <div className="container">
+        <SectionHeader
+          eyebrow="Trajetória"
+          title="Experiência"
+          description="Formação, atuação técnica e certificados que sustentam a base do meu desenvolvimento profissional."
+        />
+
         <div className="exp-block">
           <h2>
             <AnimatedText text="🎓 Formação" />
           </h2>
 
-          <div className="exp-card">
+          <Reveal className="exp-card">
             <h3>
               <AnimatedText text="Técnico em Informática integrado ao Ensino Médio" />
             </h3>
             <p>
               <AnimatedText text="Formação técnica concluída no CEDUP em 4 anos, integrada ao ensino médio, com foco em informática, suporte técnico, manutenção de computadores, lógica de programação e fundamentos de desenvolvimento de sistemas." />
             </p>
-          </div>
+          </Reveal>
 
-          <div className="exp-card">
+          <Reveal className="exp-card" delay={0.05}>
             <h3>
               <AnimatedText text="Engenharia de Software" />
             </h3>
             <p>
               <AnimatedText text="Graduação em andamento na UniSATC, atualmente cursando a 6ª fase e no último ano da formação, desenvolvendo conhecimentos em desenvolvimento de software, banco de dados, arquitetura de sistemas, APIs e práticas modernas da engenharia de software." />
             </p>
-          </div>
+          </Reveal>
 
         </div>
 
@@ -57,14 +65,14 @@ export default function Experiencia() {
             <AnimatedText text="💼 Experiência" />
           </h2>
 
-          <div className="exp-card">
+          <Reveal className="exp-card">
             <h3>
               <AnimatedText text="Assistente Técnico" />
             </h3>
             <p>
               <AnimatedText text="Mais de 4 anos de experiência na área de suporte técnico, com atuação em montagem, manutenção e configuração de computadores e notebooks, atendimento remoto e presencial a clientes, diagnóstico e resolução de problemas em sistemas Windows, além de conhecimentos em redes e uso de ferramentas especializadas para análise, reparo e otimização de sistemas." />
             </p>
-          </div>
+          </Reveal>
         </div>
 
         <div className="exp-block">
@@ -74,7 +82,7 @@ export default function Experiencia() {
 
           <div className="certificados-grid">
             {certificados.map((cert, index) => (
-              <div className="exp-card certificado-card" key={index}>
+              <Reveal className="exp-card certificado-card" key={index} delay={index * 0.05}>
                 <h3>
                   <AnimatedText text={cert.titulo} />
                 </h3>
@@ -89,7 +97,7 @@ export default function Experiencia() {
                 >
                   Ver certificado
                 </a>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

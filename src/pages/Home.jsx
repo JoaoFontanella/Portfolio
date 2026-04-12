@@ -4,11 +4,10 @@ import Sobre from "../components/Sobre";
 import Skills from "../components/Skills";
 import Projetos from "../components/Projetos";
 import Contato from "../components/Contato";
-import "../styles/Home.css";
 
 export default function Home() {
   return (
-    <div className="app dark-theme">
+    <div className="page page-home">
       <Hero />
       <Sobre />
       <Skills />

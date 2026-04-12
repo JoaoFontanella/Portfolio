@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/Projetos.css";
 import AnimatedText from "./AnimatedText";
+import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
 import { GitHubIcon, VercelIcon, ReactIcon, NodeIcon, PostgreSQLIcon, PythonIcon, PHPIcon, FigmaIcon, GitIcon } from "./icons";
 
 const projects = [
@@ -76,51 +78,57 @@ function renderTechIcon(techName) {
 
 export default function Projetos() {
   return (
-    <section id="projects">
-      <h2>
-        <AnimatedText text="Projetos" />
-      </h2>
+    <section id="projects" className="projects-section">
+      <div className="section-shell">
+        <SectionHeader
+          eyebrow="Portfólio"
+          title="Projetos"
+        />
 
-      <div className="projects-list">
-        {projects.map((p, i) => (
-          <div key={i} className="project-card">
-            <h3>
-              <AnimatedText text={p.name} />
-            </h3>
-            {p.team && <span className="team-tag">Projeto em equipe</span>}
-            {!p.team && <span className="solo-tag">Projeto individual</span>}
-            {p.repo_priv && <span className="private-repo-tag">Repositório privado</span>}
-            {!p.repo_priv && <span className="public-repo-tag">Repositório público</span>}
-            <p>
-              <AnimatedText text={p.desc} />
-            </p>
+        <div className="projects-list">
+          {projects.map((p, i) => (
+            <Reveal key={i} className="project-card" delay={i * 0.05}>
+              <div className="project-card__top">
+                <h3>
+                  <AnimatedText text={p.name} />
+                </h3>
+                <div className="project-badges">
+                  <span className={`project-badge ${p.repo_priv ? "project-badge--private" : "project-badge--public"}`}>
+                    {p.repo_priv ? "Repositório privado" : "Repositório público"}
+                  </span>
+                  <span className={`project-badge ${p.team ? "project-badge--team" : "project-badge--solo"}`}>
+                    {p.team ? "Em equipe" : "Individual"}
+                  </span>
+                </div>
+              </div>
 
-            <div className="tech-icons">
-              {p.tech && p.tech.map((t) => renderTechIcon(t))}
-            </div>
+              <p>
+                <AnimatedText text={p.desc} />
+              </p>
 
-            {(!p.repo_priv || p.deploy) && (
-              <div className="project-buttons">
-                {!p.repo_priv && (
-                  <a href={p.github} target="_blank" rel="noopener noreferrer">
-                    <button className="btn-code">
+              <div className="tech-icons">
+                {p.tech && p.tech.map((t) => renderTechIcon(t))}
+              </div>
+
+              {(!p.repo_priv || p.deploy) && (
+                <div className="project-buttons">
+                  {!p.repo_priv && (
+                    <a href={p.github} target="_blank" rel="noopener noreferrer" className="btn-code">
                       <GitHubIcon />
                       Código
-                    </button>
-                  </a>
-                )}
-                {p.deploy && (
-                  <a href={p.deploy} target="_blank" rel="noopener noreferrer">
-                    <button className="btn-deploy">
+                    </a>
+                  )}
+                  {p.deploy && (
+                    <a href={p.deploy} target="_blank" rel="noopener noreferrer" className="btn-deploy">
                       <VercelIcon />
                       Deploy
-                    </button>
-                  </a>
-                )}
-              </div>
-            )}
-          </div>
-        ))}
+                    </a>
+                  )}
+                </div>
+              )}
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,6 @@
-.experiencia {
-  padding: 120px 8%;
-  background: var(--bg-primary);
-  min-height: 100vh;
+﻿.experiencia {
+  padding: 120px 8% 100px;
+  background: linear-gradient(180deg, rgba(7, 11, 18, 0.98), rgba(9, 14, 23, 0.98));
 }
 
 .container {
@@ -9,36 +8,30 @@
   margin: 0 auto;
 }
 
-.page-title {
-  font-size: 3rem;
-  margin-bottom: 60px;
-  color: var(--accent);
-  text-align: center;
-}
-
 .exp-block {
-  margin-bottom: 80px;
+  margin-bottom: 72px;
 }
 
 .exp-block h2 {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 1.8rem;
   color: var(--text-primary);
 }
 
 .exp-card {
-  background: var(--bg-card);
-  padding: 30px;
-  border-radius: 16px;
-  border: 1px solid var(--border-color);
-  margin-bottom: 20px;
-  transition: 0.3s ease;
+  background: linear-gradient(180deg, rgba(16, 23, 36, 0.9), rgba(10, 15, 24, 0.96));
+  padding: 24px;
+  border-radius: 22px;
+  border: 1px solid rgba(160, 176, 205, 0.14);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .exp-card:hover {
-  border: 1px solid var(--accent);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px var(--accent-soft);
+  transform: translateY(-4px);
+  border-color: rgba(122, 167, 255, 0.28);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
 }
 
 .exp-card h3 {
@@ -47,35 +40,14 @@
 
 .exp-card p {
   color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.exp-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.mini-card {
-  background: var(--bg-card);
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  transition: 0.3s ease;
-}
-
-.mini-card:hover {
-  border: 1px solid var(--accent);
-  color: var(--accent);
+  line-height: 1.72;
 }
 
 .certificados-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .certificado-card {
@@ -90,10 +62,42 @@
   color: var(--accent);
   font-weight: 600;
   text-decoration: none;
-  transition: 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .certificado-link:hover {
   color: var(--text-primary);
   text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .experiencia {
+    padding: 104px 6% 90px;
+  }
+
+  .exp-block {
+    margin-bottom: 56px;
+  }
+
+  .exp-block h2 {
+    font-size: 1.5rem;
+  }
+
+  .certificados-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .experiencia {
+    padding: 96px 5% 84px;
+  }
+
+  .exp-card {
+    padding: 20px;
+  }
+
+  .exp-block h2 {
+    font-size: 1.3rem;
+  }
 }

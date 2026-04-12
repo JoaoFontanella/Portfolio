@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Skills.css";
-import AnimatedText from "./AnimatedText";
+import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
 
 const skills = [
   {
@@ -55,17 +56,20 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section id="skills">
-      <h2>
-        <AnimatedText text="Tecnologias" />
-      </h2>
-      <div className="skills-grid">
-        {skills.map((skill, index) => (
-          <div key={index} className="skill-card">
-            <img src={skill.icon} alt={skill.name} />
-            <span>{skill.name}</span>
-          </div>
-        ))}
+    <section id="skills" className="skills-section">
+      <div className="section-shell">
+        <SectionHeader
+          eyebrow="Stack"
+          title="Tecnologias"
+        />
+        <div className="skills-grid">
+          {skills.map((skill, index) => (
+            <Reveal key={index} className="skill-card" delay={index * 0.03}>
+              <img src={skill.icon} alt={skill.name} />
+              <span>{skill.name}</span>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
