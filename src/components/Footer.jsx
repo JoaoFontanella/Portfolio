@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
 import { getLocaleContent } from "../content/portfolioContent";
@@ -32,6 +32,10 @@ export default function Footer() {
           <a href="mailto:joaofontanella31@gmail.com">
             <FaEnvelope />
             {content.emailLabel}
+          </a>
+          <a href="https://wa.me/5548998068177" target="_blank" rel="noopener noreferrer">
+            <FaWhatsapp />
+            WhatsApp
           </a>
           <a href="https://github.com/JoaoFontanella" target="_blank" rel="noopener noreferrer">
             <FaGithub />

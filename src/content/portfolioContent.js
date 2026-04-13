@@ -106,6 +106,8 @@ export const portfolioContent = {
       eyebrow: "Contato",
       title: "Entre em contato",
       email: "joaofontanella31@gmail.com",
+      whatsapp: "+55 (48) 99806-8177",
+      whatsappUrl: "https://wa.me/5548998068177",
     },
     experience: {
       eyebrow: "Trajetória",
@@ -269,6 +271,8 @@ export const portfolioContent = {
       eyebrow: "Contact",
       title: "Get in touch",
       email: "joaofontanella31@gmail.com",
+      whatsapp: "+55 (48) 99806-8177",
+      whatsappUrl: "https://wa.me/5548998068177",
     },
     experience: {
       eyebrow: "Background",

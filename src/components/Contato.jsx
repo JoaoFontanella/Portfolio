@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Contato.css";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { getLocaleContent } from "../content/portfolioContent";
@@ -19,7 +19,17 @@ export default function Contato() {
           <div className="contact-actions">
             <a href={`mailto:${content.email}`} className="social-btn social-btn--email">
               <FaEnvelope />
-              <span>{content.email}</span>
+              <span>Email</span>
+            </a>
+
+            <a
+              href={content.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn social-btn--whatsapp"
+            >
+              <FaWhatsapp />
+              <span>WhatsApp</span>
             </a>
 
             <a
