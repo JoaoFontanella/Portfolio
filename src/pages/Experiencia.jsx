@@ -3,91 +3,70 @@ import "../styles/Experiencia.css";
 import AnimatedText from "../components/AnimatedText";
 import SectionHeader from "../components/SectionHeader";
 import Reveal from "../components/Reveal";
+import { getLocaleContent } from "../content/portfolioContent";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function Experiencia() {
+  const { locale } = useLocale();
+  const content = getLocaleContent(locale).experience;
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const certificados = [
-    {
-      titulo: "Desenvolvedor de Software",
-      instituicao: "Unisatc",
-      horas: "480h",
-      ano: "2025",
-      link: "https://drive.google.com/file/d/1DnOEjjNnuEuG7cj9yvUa1tQfIlUKepfT/view?usp=sharing"
-    },
-    {
-      titulo: "Analista em Requisitos de Software",
-      instituicao: "Unisatc",
-      horas: "400h",
-      ano: "2025",
-      link: "https://drive.google.com/file/d/1s0IwtsY5BD2wc_ZjMcjfslZ8CJq-p0Hd/view?usp=sharing"
-    },
-  ];
-
   return (
     <section className="experiencia">
       <div className="container">
-        <SectionHeader
-          eyebrow="Trajetória"
-          title="Experiência"
-          description="Formação, atuação técnica e certificados que sustentam a base do meu desenvolvimento profissional."
-        />
+        <SectionHeader eyebrow={content.eyebrow} title={content.title} description={content.description} />
 
         <div className="exp-block">
           <h2>
-            <AnimatedText text="🎓 Formação" />
+            <AnimatedText text={content.educationTitle} />
           </h2>
 
-          <Reveal className="exp-card">
-            <h3>
-              <AnimatedText text="Técnico em Informática integrado ao Ensino Médio" />
-            </h3>
-            <p>
-              <AnimatedText text="Formação técnica concluída no CEDUP em 4 anos, integrada ao ensino médio, com foco em informática, suporte técnico, manutenção de computadores, lógica de programação e fundamentos de desenvolvimento de sistemas." />
-            </p>
-          </Reveal>
-
-          <Reveal className="exp-card" delay={0.05}>
-            <h3>
-              <AnimatedText text="Engenharia de Software" />
-            </h3>
-            <p>
-              <AnimatedText text="Graduação em andamento na UniSATC, atualmente cursando a 6ª fase e no último ano da formação, desenvolvendo conhecimentos em desenvolvimento de software, banco de dados, arquitetura de sistemas, APIs e práticas modernas da engenharia de software." />
-            </p>
-          </Reveal>
+          {content.educationItems.map((item, index) => (
+            <Reveal className="exp-card" key={item.title} delay={index * 0.05}>
+              <h3>
+                <AnimatedText text={item.title} />
+              </h3>
+              <p>
+                <AnimatedText text={item.description} />
+              </p>
+            </Reveal>
+          ))}
 
         </div>
 
         <div className="exp-block">
           <h2>
-            <AnimatedText text="💼 Experiência" />
+            <AnimatedText text={content.workTitle} />
           </h2>
 
-          <Reveal className="exp-card">
-            <h3>
-              <AnimatedText text="Assistente Técnico" />
-            </h3>
-            <p>
-              <AnimatedText text="Mais de 4 anos de experiência na área de suporte técnico, com atuação em montagem, manutenção e configuração de computadores e notebooks, atendimento remoto e presencial a clientes, diagnóstico e resolução de problemas em sistemas Windows, além de conhecimentos em redes e uso de ferramentas especializadas para análise, reparo e otimização de sistemas." />
-            </p>
-          </Reveal>
+          {content.workItems.map((item) => (
+            <Reveal className="exp-card" key={item.title}>
+              <h3>
+                <AnimatedText text={item.title} />
+              </h3>
+              <p>
+                <AnimatedText text={item.description} />
+              </p>
+            </Reveal>
+          ))}
         </div>
 
         <div className="exp-block">
           <h2>
-            <AnimatedText text="📜 Certificados" />
+            <AnimatedText text={content.certificatesTitle} />
           </h2>
 
           <div className="certificados-grid">
-            {certificados.map((cert, index) => (
+            {content.certificates.map((cert, index) => (
               <Reveal className="exp-card certificado-card" key={index} delay={index * 0.05}>
                 <h3>
-                  <AnimatedText text={cert.titulo} />
+                  <AnimatedText text={cert.title} />
                 </h3>
                 <p>
-                  <AnimatedText text={`${cert.instituicao} • ${cert.ano} Carga Horaria: ${cert.horas}`} />
+                  <AnimatedText text={`${cert.institution} • ${cert.year} ${locale === "pt-BR" ? "Carga horária" : "Hours"}: ${cert.hours}`} />
                 </p>
                 <a
                   href={cert.link}
@@ -95,7 +74,7 @@ export default function Experiencia() {
                   rel="noopener noreferrer"
                   className="certificado-link"
                 >
-                  Ver certificado
+                  {content.certificateLink}
                 </a>
               </Reveal>
             ))}

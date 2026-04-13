@@ -2,10 +2,10 @@
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 1000;
-  background: rgba(7, 11, 18, 0.68);
+  background: var(--nav-bg);
   backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(160, 176, 205, 0.1);
-  box-shadow: 0 10px 40px rgba(2, 6, 18, 0.16);
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: var(--nav-shadow);
 }
 
 .site-nav__inner {
@@ -23,6 +23,14 @@
   display: flex;
   align-items: center;
   gap: 28px;
+}
+
+.site-nav__actions {
+  position: absolute;
+  right: 8%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .nav-links a {
@@ -63,32 +71,82 @@
   align-items: center;
   justify-content: center;
   border-radius: 14px;
-  border: 1px solid rgba(160, 176, 205, 0.14);
-  background: rgba(14, 20, 32, 0.72);
+  border: 1px solid var(--border-color);
+  background: var(--surface-card);
   color: var(--text-primary);
   cursor: pointer;
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
-.menu-toggle:hover {
-  transform: translateY(-1px);
-  border-color: rgba(122, 167, 255, 0.4);
-  background: rgba(18, 26, 41, 0.86);
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
+.locale-toggle {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.locale-toggle:hover {
+  color: var(--text-primary);
+}
+
+.theme-toggle:hover,
+.menu-toggle:hover,
+.locale-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-border);
+  background: var(--surface-card-hover);
+}
+
+.locale-toggle:focus-visible {
+  outline: 2px solid var(--accent-border);
+  outline-offset: 1px;
+}
+
+.theme-toggle svg,
 .menu-toggle svg {
   font-size: 1.2rem;
 }
 
 @media (max-width: 900px) {
   .site-nav {
-    background: rgba(7, 11, 18, 0.82);
+    background: var(--nav-mobile-bg);
   }
 
   .site-nav__inner {
     height: 72px;
     padding: 0 18px;
     justify-content: flex-end;
+  }
+
+  .site-nav__actions {
+    position: static;
+    right: auto;
+    gap: 8px;
   }
 
   .menu-toggle {
@@ -102,8 +160,8 @@
     right: 16px;
     padding: 20px;
     border-radius: 22px;
-    border: 1px solid rgba(160, 176, 205, 0.12);
-    background: rgba(8, 12, 18, 0.94);
+    border: 1px solid var(--border-color-soft);
+    background: var(--surface-menu);
     backdrop-filter: blur(18px);
     box-shadow: var(--shadow-lg);
     flex-direction: column;

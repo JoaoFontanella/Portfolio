@@ -3,28 +3,33 @@ import "../styles/Hero.css";
 import AnimatedText from "./AnimatedText";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
+import { getLocaleContent } from "../content/portfolioContent";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function Hero() {
+  const { locale } = useLocale();
+  const content = getLocaleContent(locale).hero;
+
   return (
     <section id="hero" className="hero-section">
       <div className="hero-container">
         <Reveal className="hero-text">
-          <span className="eyebrow">Portfólio / front-end</span>
+          <span className="eyebrow">{content.eyebrow}</span>
           <h1 id="h1-hero">
-            <AnimatedText text="João Fontanella" />
+            <AnimatedText text={content.title} />
           </h1>
           <h2 id="h2-hero">
-            <AnimatedText text="Desenvolvedor focado em aplicações web" />
+            <AnimatedText text={content.subtitle} />
           </h2>
           <p id="p-hero">
-            <AnimatedText text="Utilizando React como principal framework tenho experiência acadêmica criando sistemas com integração de APIs e bancos de dados relacionais como PostgreSQL e MySQL." />
+            <AnimatedText text={content.description} />
           </p>
           <div className="hero-buttons">
             <Link to="/#projects" className="btn-primary">
-              Ver projetos
+              {content.primaryAction}
             </Link>
             <Link to="/experiencia" className="btn-secondary">
-              Experiência
+              {content.secondaryAction}
             </Link>
           </div>
         </Reveal>

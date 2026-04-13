@@ -2,32 +2,36 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
+import { getLocaleContent } from "../content/portfolioContent";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function Footer() {
+  const { locale } = useLocale();
+  const content = getLocaleContent(locale).footer;
+
   return (
     <footer className="site-footer">
       <Reveal className="site-footer__inner">
         <div className="site-footer__brand">
           <span className="site-footer__kicker">João Fontanella</span>
           <p>
-            Desenvolvedor front-end com foco em interfaces elegantes, experiências responsivas e projetos com boa
-            arquitetura visual.
+            {content.brandDescription}
           </p>
         </div>
 
         <div className="site-footer__links">
-          <span>Mapa</span>
-          <Link to="/#hero">Início</Link>
-          <Link to="/#about">Sobre</Link>
-          <Link to="/#projects">Projetos</Link>
-          <Link to="/experiencia">Experiência</Link>
+          <span>{content.mapLabel}</span>
+          <Link to="/#hero">{locale === "pt-BR" ? "Início" : "Home"}</Link>
+          <Link to="/#about">{locale === "pt-BR" ? "Sobre" : "About"}</Link>
+          <Link to="/#projects">{locale === "pt-BR" ? "Projetos" : "Projects"}</Link>
+          <Link to="/experiencia">{locale === "pt-BR" ? "Experiência" : "Experience"}</Link>
         </div>
 
         <div className="site-footer__social">
-          <span>Contato</span>
+          <span>{content.contactLabel}</span>
           <a href="mailto:joaofontanella31@gmail.com">
             <FaEnvelope />
-            E-mail
+            {content.emailLabel}
           </a>
           <a href="https://github.com/JoaoFontanella" target="_blank" rel="noopener noreferrer">
             <FaGithub />
@@ -45,8 +49,8 @@ export default function Footer() {
       </Reveal>
 
       <div className="site-footer__bottom">
-        <span>© 2026 João Fontanella. Todos os direitos reservados.</span>
-        <span>Feito com React, Vite e framer-motion.</span>
+        <span>{content.bottomRights}</span>
+        <span>{content.bottomStack}</span>
       </div>
     </footer>
   );

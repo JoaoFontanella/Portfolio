@@ -2,6 +2,8 @@ import React from "react";
 import "../styles/Skills.css";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
+import { getLocaleContent } from "../content/portfolioContent";
+import { useLocale } from "../contexts/LocaleContext";
 
 const skills = [
   {
@@ -55,13 +57,13 @@ const skills = [
 ];
 
 export default function Skills() {
+  const { locale } = useLocale();
+  const content = getLocaleContent(locale).skills;
+
   return (
     <section id="skills" className="skills-section">
       <div className="section-shell">
-        <SectionHeader
-          eyebrow="Stack"
-          title="Tecnologias"
-        />
+        <SectionHeader eyebrow={content.eyebrow} title={content.title} />
         <div className="skills-grid">
           {skills.map((skill, index) => (
             <Reveal key={index} className="skill-card" delay={index * 0.03}>

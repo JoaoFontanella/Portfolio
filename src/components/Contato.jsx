@@ -3,21 +3,23 @@ import "../styles/Contato.css";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
+import { getLocaleContent } from "../content/portfolioContent";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function Contato() {
+  const { locale } = useLocale();
+  const content = getLocaleContent(locale).contact;
+
   return (
     <section id="contact" className="contact-section">
       <div className="section-shell">
-        <SectionHeader
-          eyebrow="Contato"
-          title="Entre em contato"
-        />
+        <SectionHeader eyebrow={content.eyebrow} title={content.title} />
 
         <Reveal className="contact-grid">
           <div className="contact-actions">
-            <a href="mailto:joaofontanella31@gmail.com" className="social-btn social-btn--email">
+            <a href={`mailto:${content.email}`} className="social-btn social-btn--email">
               <FaEnvelope />
-              <span>joaofontanella31@gmail.com</span>
+              <span>{content.email}</span>
             </a>
 
             <a
