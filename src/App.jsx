@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Scroll from "./components/Scroll";
@@ -54,6 +55,7 @@ function App() {
   return (
     <LocaleProvider>
       <AppShell />
+      <Analytics />
     </LocaleProvider>
   );
 }
